@@ -5,12 +5,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <SidebarProvider>
-      <div className='w-full flex h-screen  bg-sidebar-primary'>
-      <MainSidebar/>
-      <ModeToggle/>
-    </div>
-    </SidebarProvider>
+   <div></div>
   )
 }
 

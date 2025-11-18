@@ -1,0 +1,2 @@
+export const getWebsiteTranscribeNamespace = (id:string, version:string="v1")=>  `website_transcribe_${version}_${id}`
+export const getProjectTranscribeNamespace = (id:string, version:string="v1")=>  `project_transcribe_${version}_${id}`

@@ -1,0 +1,23 @@
+import { components } from "../_generated/api";
+import { Agent } from "@convex-dev/agent";
+import { google } from "@ai-sdk/google";
+import SearchRagContext from "../website/tools/SearchRagContext";
+import SearchProjectRagContext from "../website/tools/SearchProjectRagContext";
+
+export const Project_agent = new Agent(components.agent, {
+  name: "Firechat",
+  languageModel: google.chat("gemini-2.0-flash"),
+  instructions: `
+You are Firechat, an AI assistant inside a chat app.
+You can search relevant context using the tool "rag_search".
+If the user asks about something that requires external information, ALWAYS call "rag_search" first before answering.
+Only respond after you have used this tool to gather relevant context.
+your inside project mode which means you will have multiple websites and other documents inside the rag 
+Reply in markdown formate
+extract 
+  `,
+  maxSteps: 3,
+  tools:{
+     "rag_search": SearchProjectRagContext
+  }
+});
