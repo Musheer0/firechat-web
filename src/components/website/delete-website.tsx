@@ -70,7 +70,7 @@ const DeleteWebsiteButton = ({ children ,id}: { children: React.ReactNode,id:Id<
         <DialogFooter className="flex gap-2 sm:justify-end">
           <DialogClose asChild>
             <Button
-              variant="outline"
+              variant={"custom"}
               disabled={isPending}
               className="transition-all"
             >
@@ -79,7 +79,8 @@ const DeleteWebsiteButton = ({ children ,id}: { children: React.ReactNode,id:Id<
           </DialogClose>
 
           <Button
-          variant={'destructive'}
+
+          variant={"cdanger"}
             onClick={handleDelete}
             disabled={isPending}
             className={cn(

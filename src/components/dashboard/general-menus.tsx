@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton } from '../ui/sidebar'
 import { HugeiconsIcon, } from '@hugeicons/react';
-import { AddressBookIcon, BrowserIcon ,ChatFeedbackIcon} from '@hugeicons/core-free-icons'
+import { AddressBookIcon, BrowserIcon } from '@hugeicons/core-free-icons'
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 const routes = [
@@ -11,12 +11,12 @@ const routes = [
         route:'/app/websites',
         icon:BrowserIcon
     },
-    {
-        name:'chats',
-        route:'/app/chats',
-        icon:ChatFeedbackIcon
+    // {
+    //     name:'chats',
+    //     route:'/app/chats',
+    //     icon:ChatFeedbackIcon
 
-    },
+    // },
     {
         name:'projects',
         route:'/app/projects',

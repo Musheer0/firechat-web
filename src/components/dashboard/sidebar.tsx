@@ -1,10 +1,11 @@
 
-import { Sidebar  ,SidebarGroup, SidebarGroupContent,SidebarTrigger } from '@/components/ui/sidebar'
+import { Sidebar  ,SidebarFooter,SidebarGroup, SidebarGroupContent,SidebarTrigger } from '@/components/ui/sidebar'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowLeftDoubleIcon } from '@hugeicons/core-free-icons';
 import { Input } from '../ui/input';
 import { SearchIcon } from 'lucide-react';
 import GeneralMenus from './general-menus';
+import { UserButton } from '@clerk/nextjs';
 
 export default function MainSidebar() {
   return(
@@ -12,7 +13,7 @@ export default function MainSidebar() {
      <SidebarGroup>
          <SidebarGroupContent className='flex items-center group-data-[collapsible=icon]:justify-center justify-between'>
              <img
-        src='../logo.svg'
+        src='/logo.svg'
         width={25}
         height={25}
         alt='logo'
@@ -34,11 +35,23 @@ export default function MainSidebar() {
               `
             }}
             placeholder='Search Websites'
-            className='bg-zinc-950/40!  border-none pl-7 '/>
+            className='bg-zinc-950/40!  items-start border-none pl-7 '/>
            </div>
           </SidebarGroupContent>
         </SidebarGroup>
         <GeneralMenus/>
+        <SidebarGroup className='flex-1'></SidebarGroup>
+        <SidebarFooter>
+           <UserButton showName
+        appearance={{
+          elements:{
+            rootBox:' w-full!',
+            userButtonBox:'flex-row-reverse! w-full! justify-end!',
+            userButtonTrigger:'w-full!'
+          }
+        }}
+         />
+        </SidebarFooter>
     </Sidebar>
   )
 }

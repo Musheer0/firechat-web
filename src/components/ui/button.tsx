@@ -20,7 +20,9 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         custom:'shadow-[0px_-0.6px_0px_rgb(74,67,64),0px_0.5px_2px_rgb(22,22,22)]  bg-gradient-to-b from-sidebar-primary to-sidebar-primary/30 cursor-pointer',
-        cdanger:'shadow-[0px_-0.6px_0px_rgb(120,0,0),0px_0.5px_2px_rgb(40,0,0)] bg-gradient-to-b from-red-600 to-red-800 cursor-pointer'
+        cdanger:'shadow-[0px_-0.6px_0px_rgb(120,0,0),0px_0.5px_2px_rgb(40,0,0)] bg-gradient-to-b from-red-600 to-red-800 cursor-pointer',
+        csecondary:'shadow-[0px_-0.6px_0px_rgb(60,60,60),0px_0.5px_2px_rgb(28,28,28)] bg-gradient-to-b from-zinc-600 to-zinc-700/40 cursor-pointer'
+
 
       },
       size: {

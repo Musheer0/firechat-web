@@ -4,42 +4,50 @@ import React from 'react'
 import { api } from '../../../convex/_generated/api'
 import { Button } from '../ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '../ui/card'
+import UserWebsiteCard from './user-website-card'
+import { Skeleton } from '../ui/skeleton'
 
 const UserWebsiteList = () => {
-    const {loadMore,isLoading,results,status} = usePaginatedQuery(api.website.client.GetUserWebsitesPaginated.default,{},{initialNumItems:10})
+    const {loadMore,isLoading,results,status} = usePaginatedQuery(api.website.client.GetUserWebsitesPaginated.default,{},{initialNumItems:1})
+    
    return (
     <div>
-    <div className='flex w-full h-full flex-1 gap-3'>
+    
+    <div className='flex w-full h-full flex-wrap-reverse flex-1 gap-3'>
         {results.map((e)=>{
         return (
           <React.Fragment key={e._id}>
-           <Card className='w-full max-w-sm p-0 overflow-hidden gap-2 pb-2'>
-            <CardHeader className='p-0'>
-              <img src={e.ogBannerUrl} alt="website banner url" className='w-full h-[180px] object-cover' />
-            </CardHeader>
-            <CardContent className='flex py-0 items-center gap-2 '>
-              <img src={e.faviconUrl} alt="website favicon" width={40} height={40} />
-              <p className='line-clamp-1'>{e.name}</p>
+          <UserWebsiteCard e={e}/>
+           </React.Fragment>
+        )
+      })}
+        {isLoading &&
+      <>
+      {[1,2,3,4,5,6].map((e)=>{
+        return (
+          <React.Fragment key={e}>
+            <Skeleton className='w-full max-w-sm h-[250px]'>
               
-            </CardContent>
-            <CardFooter className='pt-0'>
-              <CardDescription className='line-clamp-3'>
-                {e.description}
-              </CardDescription>
-            </CardFooter>
-           </Card>
+            </Skeleton>
           </React.Fragment>
         )
       })}
+      </>
+      }
     </div>
-          {status==="CanLoadMore" &&
+    
+        <div className='w-full flex items-center justify-center py-2'>
+            {status==="CanLoadMore" &&
       <Button
-      disabled={isLoading}
+      variant={'custom'}
+      disabled={isLoading} 
+      className='mx-auto'
       onClick={()=>loadMore(10)}
       >
         Load more
       </Button>
       }
+        </div>
      
     
     </div>
