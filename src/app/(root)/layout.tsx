@@ -3,24 +3,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarProvider } from '@/components/ui/sidebar';
 import MainSidebar from '@/components/dashboard/sidebar';
 import ConvexClientProvider from "@/components/auth/provider";
-import { ClerkProvider } from "@clerk/nextjs";
-import { shadcn } from '@clerk/themes'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-      <ClerkProvider
-        appearance={{
-        baseTheme: shadcn,
-      }}
-      >
+     
      <ConvexClientProvider>
-     <html lang="en"
-     suppressContentEditableWarning
-     >
-      <body
-      suppressHydrationWarning
-      >
-          <ThemeProvider
+      <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
@@ -38,10 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     </SidebarProvider>
             
           </ThemeProvider>
-      </body>
-    </html>
    </ConvexClientProvider>
-  </ClerkProvider>
     
   );
 };

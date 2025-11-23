@@ -11,7 +11,7 @@ export default query({
         const project = await ctx.db.get(args.project_id);
         if(!project) return null;
         if(project.user_id!==auth.subject) throw new ConvexError("Unauhtorized");
-        const {entry_ids,initial_prompt,websites,...filtered} = project
+        const {entry_ids,initial_prompt,websites,threadId,...filtered} = project
         return filtered
     }
 })

@@ -16,6 +16,7 @@ import type * as project_client_CreateProject from "../project/client/CreateProj
 import type * as project_client_DeleteProject from "../project/client/DeleteProject.js";
 import type * as project_client_ListProjectWebsites from "../project/client/ListProjectWebsites.js";
 import type * as project_client_SendProjectMessage from "../project/client/SendProjectMessage.js";
+import type * as project_client_getProjectById from "../project/client/getProjectById.js";
 import type * as project_client_getUserProjectMessages from "../project/client/getUserProjectMessages.js";
 import type * as project_client_getUserProjectPaginated from "../project/client/getUserProjectPaginated.js";
 import type * as project_client_removeWebsite from "../project/client/removeWebsite.js";
@@ -68,6 +69,7 @@ declare const fullApi: ApiFromModules<{
   "project/client/DeleteProject": typeof project_client_DeleteProject;
   "project/client/ListProjectWebsites": typeof project_client_ListProjectWebsites;
   "project/client/SendProjectMessage": typeof project_client_SendProjectMessage;
+  "project/client/getProjectById": typeof project_client_getProjectById;
   "project/client/getUserProjectMessages": typeof project_client_getUserProjectMessages;
   "project/client/getUserProjectPaginated": typeof project_client_getUserProjectPaginated;
   "project/client/removeWebsite": typeof project_client_removeWebsite;
