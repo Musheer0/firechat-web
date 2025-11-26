@@ -1,3 +1,5 @@
+import { Id } from "../../convex/_generated/dataModel";
+
 export type Tproject = {
   name: string;
   entry_ids: string[];
@@ -6,6 +8,6 @@ export type Tproject = {
   threadId: string;
   initial_prompt: string; 
   user_id: string;
-  _id:string
+  _id:Id<"project">
    _creationTime:number
 };

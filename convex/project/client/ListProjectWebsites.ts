@@ -14,8 +14,8 @@ export default query({
            return null;
         }
       const project = await ctx.db.get(args.project_id);
-      if(!project) return null;
-     if(project.user_id!==auth.subject) return null;
+      if(!project) return [];
+     if(project.user_id!==auth.subject) return [];
      const websites:{
     _id: Id<"website">;
     _creationTime: number;

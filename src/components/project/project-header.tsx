@@ -1,11 +1,8 @@
 "use client"
-import React from 'react'
 import { useProject } from './project-provider'
 import { HugeiconsIcon } from "@hugeicons/react";
 import { PackageIcon } from "@hugeicons/core-free-icons";
-import { Button } from '../ui/button';
-import { MoreVertical } from 'lucide-react';
-import { DropdownMenu, DropdownMenuTrigger } from '../ui/dropdown-menu';
+import ProjectActionsDropDown from './project-actions-dropdown';
 const ProjectHeader = () => {
     const project = useProject()
 if(project)
@@ -23,13 +20,7 @@ if(project)
         </p>
         </div>
 
-        <DropdownMenu>
-            <DropdownMenuTrigger>
-                <Button variant={"ghost"}>
-            <MoreVertical/>
-        </Button>
-            </DropdownMenuTrigger>
-        </DropdownMenu>
+      <ProjectActionsDropDown id={project._id}/>
         </div>
   )
 }

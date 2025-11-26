@@ -6,6 +6,7 @@ import React from 'react'
 import { Id } from "../../../convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
+import { notFound } from "next/navigation";
 const ProjectProvider = ({children, id}:{children:React.ReactNode, id:Id<"project">}) => {
    const project = useQuery(api.project.client.getProjectById.default,{project_id:id})
 
@@ -16,9 +17,7 @@ const ProjectProvider = ({children, id}:{children:React.ReactNode, id:Id<"projec
         </>
     )
  if(project==null)
-    return <>
-    not found
-    </>
+    notFound()
 if(project)
   return (
     <ProjectContext.Provider value={project}>

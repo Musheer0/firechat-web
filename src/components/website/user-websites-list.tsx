@@ -6,12 +6,14 @@ import { Button } from '../ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '../ui/card'
 import UserWebsiteCard from './user-website-card'
 import { Skeleton } from '../ui/skeleton'
+import NoWebsitesScreen from './no-websites-screen'
 
 const UserWebsiteList = () => {
     const {loadMore,isLoading,results,status} = usePaginatedQuery(api.website.client.GetUserWebsitesPaginated.default,{},{initialNumItems:1})
     
    return (
     <div>
+          {!isLoading &&  results.length==0 && <NoWebsitesScreen/>}
     
     <div className='flex w-full h-full flex-wrap-reverse flex-1 gap-3'>
         {results.map((e)=>{
