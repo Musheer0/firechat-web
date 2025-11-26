@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono ,Host_Grotesk} from "next/font/google";
 import "./globals.css";
-
+import { ClerkProvider } from "@clerk/nextjs";
+import {shadcn} from '@clerk/themes'
 const font = Host_Grotesk({
   subsets:['latin-ext']
 })
@@ -17,11 +18,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ClerkProvider
+        appearance={{
+              baseTheme: shadcn,
+            }}
+      >
       <body
         className={`${font.className} antialiased`}
       >
-        {children}
+         {children}
       </body>
+       </ClerkProvider>
     </html>
   );
 }

@@ -17,6 +17,8 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { PackageIcon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
+import ProjectActionsDropDown from "@/components/project/project-actions-dropdown";
+import NoProjectsScreen from "./no-project-screen";
 
 const UserProjectList = () => {
   const { loadMore, isLoading, results, status } =
@@ -28,7 +30,9 @@ const UserProjectList = () => {
 
   return (
     <div className="flex flex-col gap-4 w-full">
+      {!isLoading && results.length==0 && <NoProjectsScreen/>}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+
         {results.map((project) => (
           <Card
             key={project._id}
@@ -44,9 +48,10 @@ const UserProjectList = () => {
                 />
               </div>
 
-              <CardTitle className="text-lg font-semibold">
+              <CardTitle className="text-lg mr-auto font-semibold">
                 {project.name}
               </CardTitle>
+              <ProjectActionsDropDown id={project._id}/>
             </CardHeader>
 
             <CardContent className="text-sm text-neutral-400">
