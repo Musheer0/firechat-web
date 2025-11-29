@@ -15,7 +15,7 @@ const SendChatMessageInput = ({ id }: { id: Id<"personal_chat"> }) => {
       placeholder="Ask anything about the website..."
       minRows={2}
       maxRows={6}
-      className="bg-muted/30 border p-3 sm:p-4 rounded-2xl"
+      className=" max-w-xl mx-auto p-3 sm:p-4 rounded-2xl"
       onSend={(message) =>
         sendMsg({ chatId: id, messageText: message })
       }

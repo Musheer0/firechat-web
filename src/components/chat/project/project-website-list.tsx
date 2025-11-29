@@ -20,7 +20,7 @@ const ProjectWebsiteListComponent = ({ id }: { id: Id<"project"> }) => {
     <div>
       {websites.map((w) => (
         <React.Fragment key={w._id}>
-         <Link href={'/websites/'+w._id}>
+         <Link href={'/websites/'+w._id+"/chats"}>
           <div className='w-full flex cursor-pointer items-center gap-2'>
             <img src={w.faviconUrl} alt='website icon'/>
             <p className='line-clamp-1'>{w.name}</p>

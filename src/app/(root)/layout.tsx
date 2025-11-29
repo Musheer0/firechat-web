@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarProvider } from '@/components/ui/sidebar';
 import MainSidebar from '@/components/dashboard/sidebar';
@@ -7,7 +7,8 @@ import { ErrorBoundary } from '@/components/errror-boundary';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ErrorBoundary>
+   <Suspense>
+     <ErrorBoundary>
        
      <ConvexClientProvider>
       <ThemeProvider
@@ -30,6 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </ThemeProvider>
    </ConvexClientProvider>
     </ErrorBoundary>
+   </Suspense>
     
   );
 };
