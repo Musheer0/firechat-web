@@ -8,6 +8,7 @@ export default internalAction({
     handler:async(ctx,args)=>{
         const auth = await ctx.auth.getUserIdentity();  
         if(!auth){
+            console.log("no re")
             throw new Error("Unauthorized");
         };
         try {
@@ -21,6 +22,7 @@ export default internalAction({
                 body: JSON.stringify({ url: args.url }),
             });
             if(!req.ok){
+                console.log(req.status)
                 throw new Error(`Failed to fetch website metadata: ${req.statusText}`);
             }
             const data = await req.json();

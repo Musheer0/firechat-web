@@ -5,7 +5,6 @@ export default query({
   args: { paginationOpts: paginationOptsValidator },
     handler: async (ctx, { paginationOpts }) => {
         const auth = await ctx.auth.getUserIdentity();
-        console.log(auth)
         if(!auth){
             throw new Error("Unauthorized");
         }

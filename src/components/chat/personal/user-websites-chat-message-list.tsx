@@ -4,6 +4,7 @@ import React from 'react'
 import { api } from '../../../../convex/_generated/api'
 import { Button } from '../../ui/button'
 import { Id } from '../../../../convex/_generated/dataModel'
+import { ChatListUI } from '@/components/shared/paginated-chat-list'
 
 const UserWebsiteChatMessageList = (
   {
@@ -26,7 +27,13 @@ const UserWebsiteChatMessageList = (
         Load more
       </Button>
       }
-      {JSON.stringify(results)}
+      <ChatListUI
+      canLoadMore={status==="CanLoadMore"}
+      isLoading={isLoading}
+      loadMore={()=>loadMore(5)}
+      messages={results}
+
+      />
     
     </div>
   )

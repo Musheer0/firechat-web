@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '../u
 import { Button } from '../ui/button'
 import { Id } from '../../../convex/_generated/dataModel';
 import Link from 'next/link';
-import { Trash2Icon } from 'lucide-react';
+import { Globe2, Trash2Icon } from 'lucide-react';
 import DeleteWebsiteButton from './delete-website';
 type website = {
      _id: Id<"website">;
@@ -40,6 +40,12 @@ const UserWebsiteCard = ({e}:{e:website}) => {
       color="currentColor"
       strokeWidth={1.5}
     />
+
+              </Button>
+              </Link>
+              <Link target='_blank' href={e.url} className='ml-auto'>
+                <Button title='new chat'  size={'icon'} variant={'csecondary'}>
+                <Globe2/>
 
               </Button>
               </Link>

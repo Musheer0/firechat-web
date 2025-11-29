@@ -1,22 +1,47 @@
 "use client"
 import { usePaginatedQuery } from 'convex/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { api } from '../../../convex/_generated/api'
 import { Button } from '../ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '../ui/card'
 import UserWebsiteCard from './user-website-card'
 import { Skeleton } from '../ui/skeleton'
 import NoWebsitesScreen from './no-websites-screen'
+import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const UserWebsiteList = () => {
     const {loadMore,isLoading,results,status} = usePaginatedQuery(api.website.client.GetUserWebsitesPaginated.default,{},{initialNumItems:1})
-    
+    const searchparams = useSearchParams()
+    const query = searchparams.get('q');
+    const router =useRouter()
    return (
     <div>
           {!isLoading &&  results.length==0 && <NoWebsitesScreen/>}
-    
+       {query &&
+        <div className='w-full py-2 flex items-center gap-2'>
+           <CardDescription>
+          showing results for "<i>{query}</i>"
+         </CardDescription>
+          <Button
+          size={'sm'}
+          variant={"csecondary"}
+          onClick={()=>router.push('/app/websites')}
+          >
+            Clear
+          </Button>
+        </div>
+       }
     <div className='flex w-full h-full flex-wrap-reverse flex-1 gap-3'>
         {results.map((e)=>{
+          if(query){
+             if(e.description.toLocaleLowerCase().includes(query.toLocaleLowerCase())||e.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))     return (
+          <React.Fragment key={e._id}>
+          <UserWebsiteCard e={e}/>
+           </React.Fragment>
+        )
+          }
+          else
         return (
           <React.Fragment key={e._id}>
           <UserWebsiteCard e={e}/>
