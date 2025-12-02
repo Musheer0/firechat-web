@@ -51,6 +51,7 @@ import type * as website_server_SendAiPersonalChatMessageInternal from "../websi
 import type * as website_server_SendUserPersonalChatMessageInternal from "../website/server/SendUserPersonalChatMessageInternal.js";
 import type * as website_server_TranscribeWebsiteAction from "../website/server/TranscribeWebsiteAction.js";
 import type * as website_server_generateChatTitlte from "../website/server/generateChatTitlte.js";
+import type * as website_tools_SearchInternetTool from "../website/tools/SearchInternetTool.js";
 import type * as website_tools_SearchProjectRagContext from "../website/tools/SearchProjectRagContext.js";
 import type * as website_tools_SearchRagContext from "../website/tools/SearchRagContext.js";
 
@@ -104,6 +105,7 @@ declare const fullApi: ApiFromModules<{
   "website/server/SendUserPersonalChatMessageInternal": typeof website_server_SendUserPersonalChatMessageInternal;
   "website/server/TranscribeWebsiteAction": typeof website_server_TranscribeWebsiteAction;
   "website/server/generateChatTitlte": typeof website_server_generateChatTitlte;
+  "website/tools/SearchInternetTool": typeof website_tools_SearchInternetTool;
   "website/tools/SearchProjectRagContext": typeof website_tools_SearchProjectRagContext;
   "website/tools/SearchRagContext": typeof website_tools_SearchRagContext;
 }>;

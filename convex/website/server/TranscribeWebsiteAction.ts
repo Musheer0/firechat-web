@@ -17,7 +17,7 @@ export default internalAction({
                 headers: {
                     "Content-Type": "application/json",
                     "X-User-ID": auth.subject,
-                    "X-CONVEX_TOKEN": process.env.CONVEX_TOKEN || "",
+                    "X_CONVEX_TOKEN": process.env.CONVEX_TOKEN || "",
                 },
                 body: JSON.stringify({ url: args.url }),
             });

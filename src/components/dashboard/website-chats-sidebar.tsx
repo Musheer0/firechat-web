@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 const WebsiteChatSidebar = ({id}:{id:Id<"website">}) => {
   const {results,isLoading,loadMore,status} = usePaginatedQuery(api.website.client.GetUserWebsitePersonalChatPaginated.default,{
     website_id:id
-  },{initialNumItems:5});
+  },{initialNumItems:1});
   const pathname =usePathname();
   return (
     <SidebarGroup className='flex-1  overflow-y-auto'>
