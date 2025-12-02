@@ -6,7 +6,7 @@ import { Input } from '../ui/input';
 import { SearchIcon } from 'lucide-react';
 import GeneralMenus from './general-menus';
 import { UserButton } from '@clerk/nextjs';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
 import WebsiteChatSidebar from './website-chats-sidebar';
 import { Id } from '../../../convex/_generated/dataModel';
 
@@ -14,6 +14,7 @@ export default function MainSidebar()
  {
   const router = useRouter()
   const param =useParams()
+  const  pathname= usePathname()
   const  handleSubmit = (e:string)=>{
     router.push('/app/websites?q='+e);
   }
@@ -55,7 +56,7 @@ export default function MainSidebar()
         </SidebarGroup> 
         <GeneralMenus/>
         {!param.id && <div className='flex-1'/>}
-      {param.id && <WebsiteChatSidebar id={param.id as Id<"website">}/>}
+      {param.id && !pathname.includes('app/projects')  &&<WebsiteChatSidebar id={param.id as Id<"website">}/>}
         <SidebarFooter>
            <UserButton showName
         appearance={{
