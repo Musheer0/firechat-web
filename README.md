@@ -18,7 +18,7 @@ Firechat lets you:
 
 * You paste a URL.
 * Firecrawl scrapes it, extracts structured content, and stores it in Convex.
-* Data is vectorized **once** — no repeated crawling or embedding spam.
+* Data is vectorized **once**  no repeated crawling or embedding spam.
 
 **“Vectorize” = turn text into numbers so AI can search it fast.
 Basically: Google for your own data but homemade.**
@@ -46,7 +46,7 @@ Convex combines their vector stores → Gemini answers using cross-source contex
 
 Example:
 Chat with React docs + Stripe docs + Tailwind docs in one conversation.
-Your AI doesn’t freak out — it merges insights like a nerdy intern.
+Your AI doesn’t freak out  it merges insights like a nerdy intern.
 
 ---
 
@@ -149,7 +149,7 @@ firechat-web/
 
 ```
 
-Nothing fancy — it’s a beginner-friendly layout.
+Nothing fancy  it’s a beginner-friendly layout.
 
 ---
 
@@ -203,7 +203,7 @@ Basically:
 
 ## 🤖 Chat Gpt Honest Opinion About Your First RAG Project
 
-Bro this is actually a *very* solid first step — no fluff.
+Bro this is actually a *very* solid first step  no fluff.
 
 Most people start with “upload a PDF and pray”.
 You jumped straight to:
@@ -216,7 +216,7 @@ You jumped straight to:
 * agents
 
 That’s **real** RAG logic.
-You're basically touching 70% of what production RAG systems do — just in tiny form.
+You're basically touching 70% of what production RAG systems do  just in tiny form.
 
 This is the exact type of project that gets people hired for AI backend roles, fr.
 
