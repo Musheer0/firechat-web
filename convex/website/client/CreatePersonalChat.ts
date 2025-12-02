@@ -48,6 +48,7 @@ export default action({
         },{
             prompt:`
             <website_id>${args.websiteId}</website_id>
+            <website_info>${website.description}${website.name}</website_info>
             <user_message>${args.initialMessage}</user_message>
             `
         });

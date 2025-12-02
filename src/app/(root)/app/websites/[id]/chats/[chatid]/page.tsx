@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Globe2Icon } from 'lucide-react';
 import Link from 'next/link';
+import WebsiteInfo from '@/components/chat/personal/website-info';
 
 const page = async({params}:{params:Promise<{id:string,chatid:string}>}) => {
   const {id,chatid} = await params;
@@ -26,13 +27,13 @@ const page = async({params}:{params:Promise<{id:string,chatid:string}>}) => {
               <Globe2Icon/>
              </Button>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className='p-2'>
             <SheetHeader>
               <SheetTitle>
                 Your Currently talking to 
               </SheetTitle>
             </SheetHeader>
-
+          <WebsiteInfo id={id as Id<"website">}/>
           </SheetContent>
         </Sheet>
 

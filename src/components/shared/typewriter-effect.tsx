@@ -96,7 +96,7 @@ export default function TypewriterEffect({
     }, [text]);
 
     return (
-        <span className={className} aria-live="polite" style={{ whiteSpace: "pre" }}>
+        <span className={className+'line-clamp-1'} aria-live="polite" style={{ whiteSpace: "pre" }}>
             <span>{display}</span>
             <span
                 aria-hidden

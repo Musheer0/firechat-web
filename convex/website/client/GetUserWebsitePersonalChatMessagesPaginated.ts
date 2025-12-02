@@ -14,7 +14,7 @@ export default query({
             q.eq("chat_id",chat_id)
             .eq("user_id",auth.subject)
         )
-        .order("desc")
+        .order("asc")
         .paginate(paginationOpts);
         return websites;
     }

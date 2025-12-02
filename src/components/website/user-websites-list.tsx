@@ -11,7 +11,7 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 
 const UserWebsiteList = () => {
-    const {loadMore,isLoading,results,status} = usePaginatedQuery(api.website.client.GetUserWebsitesPaginated.default,{},{initialNumItems:1})
+    const {loadMore,isLoading,results,status} = usePaginatedQuery(api.website.client.GetUserWebsitesPaginated.default,{},{initialNumItems:10})
     const searchparams = useSearchParams()
     const query = searchparams.get('q');
     const router =useRouter()

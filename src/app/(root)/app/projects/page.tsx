@@ -9,7 +9,7 @@ import React from 'react'
 const page = () => {
   return (
     <div className='w-full h-full flex flex-col gap-2 p-4'>
-      <div className="header px-2 w-full flex items-center justify-between">
+      <div className="header sticky top-0 bg-sidebar-accent py-2 px-2 w-full flex items-center justify-between">
         <p className='text-xl font-semibold'>Your Projects</p>
       <CreateProjectButton>
           <Button variant={'custom'} size={'sm'}>

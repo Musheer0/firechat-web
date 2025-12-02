@@ -8,6 +8,7 @@ export const POST = async(req:NextRequest)=>{
     },{status:401})
     const firecrawl = new Firecrawl({ apiKey: process.env.FIRECRAWL });
     const body = await req.json()
+    console.log(body)
     if(!body?.query && !body?.url) return NextResponse.json({error:"Query or url is required"},{status:400})
     if(body.query){
         const results = await firecrawl.search(body.query);

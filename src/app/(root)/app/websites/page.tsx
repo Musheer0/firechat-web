@@ -6,8 +6,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='w-full h-full flex flex-col gap-2 p-4'>
-      <div className="header px-2 w-full flex items-center justify-between">
+    <div className='w-full h-full flex flex-col overflow-y-auto gap-2 p-4'>
+      <div className="header sticky top-0 bg-sidebar-accent py-2 z-50 px-2 w-full flex items-center justify-between">
         <p className='text-xl font-semibold'>Your Websites</p>
        <AddWebsiteButton>
          <Button variant={'custom'} size={'sm'}>

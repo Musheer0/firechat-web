@@ -1,5 +1,6 @@
 import { createTool } from "@convex-dev/agent";
 import z from "zod";
+import { Id } from "../../_generated/dataModel";
 
 export default createTool({
   description: `
@@ -11,6 +12,7 @@ export default createTool({
   args: z.object({
     query: z.string().optional(),
     url: z.string().optional(),
+
   }).refine(
     (data) => data.query || data.url,
     "Either 'query' or 'url' must be provided."
@@ -18,8 +20,9 @@ export default createTool({
 
   handler: async (ctx, args) => {
     try {
-      const body = JSON.stringify(args);
-
+   
+        const body = JSON.stringify(args);
+    
       const req = await fetch(process.env.CONVEX_SEARCH_ENDPOINT!, {
         method: "POST",
         headers: {

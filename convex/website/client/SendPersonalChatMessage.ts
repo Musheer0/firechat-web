@@ -15,7 +15,12 @@ export default action({
         chatId:chatId,
         messageText:messageText
        });
-        const {text} =await Rag_agent.generateText(ctx,{
+            const messageId = await ctx.runMutation(internal.website.server.CreateInitialPersonalAiMessage.default,{
+            chatId:chatId
+        })
+      
+         try {
+              const {text} =await Rag_agent.generateText(ctx,{
             threadId:chat.threadId,
             userId:auth.subject,
 
@@ -24,13 +29,17 @@ export default action({
             <website_id>${chat.website_id}</website_id><user_message>${messageText}</user_message>
             `
         })
-        const messageId = await ctx.runMutation(internal.website.server.CreateInitialPersonalAiMessage.default,{
-            chatId:chatId
-        })
-        await ctx.runMutation(internal.website.server.SendAiPersonalChatMessageInternal.default,{
+   
+            await ctx.runMutation(internal.website.server.SendAiPersonalChatMessageInternal.default,{
             messageText:text,
             messageId
-        });
+             })
+         } catch (error) {
+           await ctx.runMutation(internal.website.server.SendAiPersonalChatMessageInternal.default,{
+            messageText:"error calling agent",
+            messageId
+             })
+         }
         return {success:true}
     }
 })

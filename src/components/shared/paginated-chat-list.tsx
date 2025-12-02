@@ -1,6 +1,8 @@
 "use client"
 import React, { useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
+import TypewriterEffect from "./typewriter-effect"
+import Markdown from "./markdown-render"
 
 interface ChatMessage {
   _id: string
@@ -71,7 +73,7 @@ export function ChatListUI({
               : cn("bg-primary rounded-bl-none", assistantBubbleClassName)
           )}
         >
-          {m.content}
+          {!m.content && m.content==='pending' ? <TypewriterEffect text={['thinking','searching','finding relavent context','finalizing']}/>: <Markdown content={m.content}/>}
         <div ref={scrollRef}></div>
         </div>
       ))}

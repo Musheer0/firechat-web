@@ -35,7 +35,7 @@ export default defineSchema({
     .index("by_user_website", ["user_id","website_id"]),
     personal_message:defineTable({
         chat_id:v.id("personal_chat"),
-        content:v.string(),
+        content:v.optional(v.string()),
         user_id:v.string(),
         role:v.union(v.literal("user"),v.literal("assistant"),v.literal("system")),
         pending:v.optional(v.boolean())
