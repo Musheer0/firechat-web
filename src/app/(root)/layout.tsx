@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarProvider } from '@/components/ui/sidebar';
 import MainSidebar from '@/components/dashboard/sidebar';
 import ConvexClientProvider from "@/components/auth/provider";
@@ -12,12 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
      <ErrorBoundary>
        
      <ConvexClientProvider>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+      
              <SidebarProvider>
       <div className='w-full flex h-screen  bg-sidebar'>
       <MainSidebar/>
@@ -29,8 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     </div>
     <MobileBottomBar/>
     </SidebarProvider>
-            
-          </ThemeProvider>
+  
    </ConvexClientProvider>
     </ErrorBoundary>
    </Suspense>
